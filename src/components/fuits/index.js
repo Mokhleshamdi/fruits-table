@@ -6,12 +6,12 @@ export default function Fruits() {
     const [fruits, setFruits] = useState(data)
     //  ASCENDING 
     const sortAscending = (attr) => setFruits([...data].sort((a, b) =>
-        attr == 'byName' ? a.name > b.name ? 1 : -1 : attr == 'byDesc' ? a.name > b.name ? 1 : -1 : attr == 'byPrice' ? a.name > b.name ? 1 : -1 : a.attr > b.attr ? 1 : -1,
+        attr == 'byName' ? a.name > b.name ? 1 : -1 : attr == 'byDesc' ? a.description > b.description ? 1 : -1 : attr == 'byPrice' && a.price > b.price ? 1 : -1 
     ))
 
     // DESCENDING
     const sortDescending = (attr) => setFruits([...data].sort((a, b) =>
-        attr == 'byName' ? a.name > b.name ? -1 : 1 : attr == 'byDesc' ? a.name > b.name ? -1 : 1 : attr == 'byPrice' ? a.name > b.name ? -1 : 1 : a.attr > b.attr ? 1 : -1,
+        attr == 'byName' ? a.name > b.name ? -1 : 1 : attr == 'byDesc' ? a.description > b.description ? -1 : 1 : attr == 'byPrice' &&a.price > b.price ? -1 : 1 
     ))
     return (
         <Fragment>
@@ -51,7 +51,6 @@ export default function Fruits() {
                                 <th>{el.id}</th>
                                 <th>
                                     {el.name}
-
                                 </th>
                                 <th>{el.description}</th>
                                 <th>{el.price}</th>
